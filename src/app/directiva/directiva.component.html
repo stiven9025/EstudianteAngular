@@ -1,0 +1,33 @@
+
+<div class="jumbotron" >
+    <h1>BIENVENIDO</h1>
+    <h1 class="display-4">Notas Estudiantes</h1>
+    <p class="lead">Listado de notas para los estudiantes del curso html 5</p>
+    <h5>Fecha Actual</h5>
+    <p class="card-text">{{obtenerFecha()}}</p>
+    <hr class="my-4">
+   
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes" [ngClass]="{resaltar: estudiante.nota<3}" >
+        
+        <th>{{estudiante.id}}</th>
+        <th>{{estudiante.nombre}}</th>
+        <th>{{estudiante.apellido}}</th>
+        <th>{{estudiante.nota}}</th>
+        <th *ngIf="prueba(estudiante.nota)">{{estado}}</th>
+        
+      </tr>
+      
+    </tbody>
+  </table>
